@@ -41,7 +41,30 @@ multi-rag-commerce-agent/
 ├── requirements.txt
 └── README.md
 ```
+```mermaid
+flowchart TD
+    A[User sends request via Web or API]
+    B[FastAPI app receives request /api/v1/chat]
+    C[Language detection (language_service)]
+    D[Store user message (memory_service)]
+    E[Call Agent for processing (agent_service.process_chat)]
+    F[Store assistant response (memory_service)]
+    G[RAG context retrieval (rag_service)]
+    H[Build prompt with question, context, and history]
+    I[Call LLM (OpenAI)]
+    J[Return JSON response to user]
 
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> G
+    G --> H
+    H --> I
+    I --> E
+    E --> F
+    F --> J
+```
 ### 1.2 Dependencies Installation
 - FastAPI + Uvicorn
 - LangChain + OpenAI
