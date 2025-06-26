@@ -1,0 +1,107 @@
+[
+  {
+    "id": "faq_001",
+    "title": "商品配送政策",
+    "content": "我们支持全球配送，主要配送地区包括：美国、加拿大、欧洲、澳大利亚、日本、韩国等。配送时间根据地区不同，一般为5-15个工作日。偏远地区可能需要更长时间。",
+    "category": "shipping",
+    "language": "zh"
+  },
+  {
+    "id": "faq_002", 
+    "title": "退货政策",
+    "content": "我们提供30天无理由退货服务。商品必须保持原包装和未使用状态。退货运费由买家承担，除非是商品质量问题。",
+    "category": "policy",
+    "language": "zh"
+  },
+  {
+    "id": "faq_003",
+    "title": "支付方式",
+    "content": "我们支持多种支付方式：信用卡（Visa、MasterCard、American Express）、PayPal、银行转账。所有支付都经过SSL加密保护。",
+    "category": "payment",
+    "language": "zh"
+  },
+  {
+    "id": "faq_004",
+    "title": "商品质量保证",
+    "content": "所有商品都经过严格质量检测，提供1年保修服务。如果发现质量问题，请及时联系客服，我们将提供免费维修或更换服务。",
+    "category": "quality",
+    "language": "zh"
+  },
+  {
+    "id": "faq_005",
+    "title": "客服联系方式",
+    "content": "我们的客服团队7×24小时在线服务。您可以通过以下方式联系我们：在线聊天、邮件support@example.com、电话+1-800-123-4567。",
+    "category": "service",
+    "language": "zh"
+  },
+  {
+    "id": "faq_006",
+    "title": "Shipping Policy",
+    "content": "We offer worldwide shipping to major regions including: USA, Canada, Europe, Australia, Japan, South Korea, etc. Delivery time varies by region, typically 5-15 business days. Remote areas may take longer.",
+    "category": "shipping",
+    "language": "en"
+  },
+  {
+    "id": "faq_007",
+    "title": "Return Policy", 
+    "content": "We provide 30-day no-questions-asked return service. Items must be in original packaging and unused condition. Return shipping is buyer's responsibility unless it's a quality issue.",
+    "category": "policy",
+    "language": "en"
+  },
+  {
+    "id": "faq_008",
+    "title": "Payment Methods",
+    "content": "We accept multiple payment methods: Credit cards (Visa, MasterCard, American Express), PayPal, bank transfer. All payments are protected by SSL encryption.",
+    "category": "payment",
+    "language": "en"
+  },
+  {
+    "id": "faq_009",
+    "title": "Product Warranty",
+    "content": "All products undergo strict quality testing and come with 1-year warranty. If quality issues are found, please contact customer service immediately for free repair or replacement.",
+    "category": "quality",
+    "language": "en"
+  },
+  {
+    "id": "faq_010",
+    "title": "Customer Service",
+    "content": "Our customer service team is available 24/7. You can reach us through: Live chat, email support@example.com, phone +1-800-123-4567.",
+    "category": "service",
+    "language": "en"
+  },
+  {
+    "id": "faq_011",
+    "title": "德国配送信息",
+    "content": "我们支持发往德国，配送时间为5-8个工作日。德国部分地区可能存在清关延迟，具体以物流跟踪信息为准。德国客户可以享受免费退货服务。",
+    "category": "shipping",
+    "language": "zh"
+  },
+  {
+    "id": "faq_012",
+    "title": "Germany Shipping Info",
+    "content": "We ship to Germany with delivery time of 5-8 business days. Some areas in Germany may experience customs delays, please check tracking information for details. German customers enjoy free return service.",
+    "category": "shipping", 
+    "language": "en"
+  },
+  {
+    "id": "faq_013",
+    "title": "商品使用方法",
+    "content": "请仔细阅读产品说明书。首次使用前请进行测试。如有疑问，请查看我们的使用视频教程或联系客服获取帮助。",
+    "category": "usage",
+    "language": "zh"
+  },
+  {
+    "id": "faq_014",
+    "title": "Product Usage Guide",
+    "content": "Please read the product manual carefully. Test before first use. If you have questions, check our video tutorials or contact customer service for help.",
+    "category": "usage",
+    "language": "en"
+  },
+  {
+    "id": "faq_015",
+    "title": "库存查询",
+    "content": "您可以在商品页面查看实时库存状态。如果显示缺货，可以选择预订或联系客服了解补货时间。",
+    "category": "inventory",
+    "language": "zh"
+  }
+] 

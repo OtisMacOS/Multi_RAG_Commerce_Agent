@@ -1,0 +1,80 @@
+[
+  {
+    "id": "product_001",
+    "title": "智能手表 Pro",
+    "content": "智能手表 Pro 是一款高端智能穿戴设备，支持心率监测、运动追踪、消息提醒等功能。采用AMOLED高清显示屏，续航时间长达7天。支持iOS和Android系统。",
+    "category": "product",
+    "language": "zh",
+    "metadata": {
+      "price": 299.99,
+      "brand": "TechBrand",
+      "category": "electronics",
+      "features": ["心率监测", "运动追踪", "消息提醒", "AMOLED屏幕"]
+    }
+  },
+  {
+    "id": "product_002",
+    "title": "无线蓝牙耳机",
+    "content": "无线蓝牙耳机采用主动降噪技术，提供沉浸式音乐体验。续航时间6小时，配合充电盒可达24小时。支持快速充电，10分钟充电可使用2小时。",
+    "category": "product", 
+    "language": "zh",
+    "metadata": {
+      "price": 159.99,
+      "brand": "AudioTech",
+      "category": "electronics",
+      "features": ["主动降噪", "长续航", "快速充电", "蓝牙5.0"]
+    }
+  },
+  {
+    "id": "product_003",
+    "title": "Smart Watch Pro",
+    "content": "Smart Watch Pro is a premium smart wearable device with heart rate monitoring, fitness tracking, and message notifications. Features AMOLED HD display with 7-day battery life. Compatible with iOS and Android.",
+    "category": "product",
+    "language": "en",
+    "metadata": {
+      "price": 299.99,
+      "brand": "TechBrand", 
+      "category": "electronics",
+      "features": ["Heart Rate Monitor", "Fitness Tracking", "Message Alerts", "AMOLED Display"]
+    }
+  },
+  {
+    "id": "product_004",
+    "title": "Wireless Bluetooth Earbuds",
+    "content": "Wireless Bluetooth earbuds feature active noise cancellation for immersive music experience. 6-hour battery life, up to 24 hours with charging case. Fast charging support - 10 minutes charge for 2 hours use.",
+    "category": "product",
+    "language": "en", 
+    "metadata": {
+      "price": 159.99,
+      "brand": "AudioTech",
+      "category": "electronics",
+      "features": ["Active Noise Cancellation", "Long Battery Life", "Fast Charging", "Bluetooth 5.0"]
+    }
+  },
+  {
+    "id": "product_005",
+    "title": "便携式充电宝",
+    "content": "20000mAh大容量便携式充电宝，支持双向快充。可为手机充电4-5次，支持多种设备。内置安全保护，过充、过放、短路保护。",
+    "category": "product",
+    "language": "zh",
+    "metadata": {
+      "price": 89.99,
+      "brand": "PowerTech",
+      "category": "electronics", 
+      "features": ["20000mAh", "双向快充", "多设备支持", "安全保护"]
+    }
+  },
+  {
+    "id": "product_006",
+    "title": "Portable Power Bank",
+    "content": "20000mAh high-capacity portable power bank with bidirectional fast charging. Can charge phones 4-5 times, supports multiple devices. Built-in safety protection against overcharge, over-discharge, and short circuit.",
+    "category": "product",
+    "language": "en",
+    "metadata": {
+      "price": 89.99,
+      "brand": "PowerTech",
+      "category": "electronics",
+      "features": ["20000mAh", "Bidirectional Fast Charging", "Multi-device Support", "Safety Protection"]
+    }
+  }
+] 
