@@ -45,13 +45,13 @@ multi-rag-commerce-agent/
 flowchart TD
     A[User sends request via Web or API]
     B[FastAPI app receives request /api/v1/chat]
-    C[Language detection (language_service)]
-    D[Store user message (memory_service)]
-    E[Call Agent for processing (agent_service.process_chat)]
-    F[Store assistant response (memory_service)]
-    G[RAG context retrieval (rag_service)]
-    H[Build prompt with question, context, and history]
-    I[Call LLM (OpenAI)]
+    C[Language detection by language_service]
+    D[Store user message by memory_service]
+    E[Call Agent for processing by agent_service process_chat]
+    F[Store assistant response by memory_service]
+    G[RAG context retrieval by rag_service]
+    H[Build prompt with question context and history]
+    I[Call LLM OpenAI]
     J[Return JSON response to user]
 
     A --> B
