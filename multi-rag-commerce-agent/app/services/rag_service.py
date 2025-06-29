@@ -1,8 +1,9 @@
 import chromadb
 from chromadb.config import Settings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import Chroma
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.embeddings import OllamaEmbeddings
+from langchain_community.vectorstores import Chroma
 from langchain.schema import Document
 from typing import List, Dict, Any, Optional
 import json
@@ -15,10 +16,18 @@ class RAGService:
     """RAG检索增强服务"""
     
     def __init__(self):
-        self.embeddings = OpenAIEmbeddings(
-            openai_api_key=settings.OPENAI_API_KEY,
-            model=settings.OPENAI_EMBEDDING_MODEL
-        )
+        # 根据配置选择embedding模型
+        if settings.USE_OLLAMA_EMBEDDING:
+            self.embeddings = OllamaEmbeddings(
+                model=settings.OLLAMA_EMBEDDING_MODEL,
+                base_url=settings.OLLAMA_BASE_URL
+            )
+        else:
+            self.embeddings = OpenAIEmbeddings(
+                openai_api_key=settings.OPENAI_API_KEY,
+                openai_api_base=settings.OPENAI_BASE_URL,
+                model=settings.OPENAI_EMBEDDING_MODEL
+            )
         
         # 初始化ChromaDB
         self.chroma_client = chromadb.PersistentClient(
@@ -32,8 +41,8 @@ class RAGService:
         
         # 文本分割器
         self.text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000,
-            chunk_overlap=200,
+            chunk_size=1000,  # 可以外置
+            chunk_overlap=200,  # 可以外置
             separators=["\n\n", "\n", "。", "！", "？", ".", "!", "?"]
         )
     

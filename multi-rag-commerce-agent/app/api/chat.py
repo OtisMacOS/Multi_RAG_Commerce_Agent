@@ -33,7 +33,7 @@ async def chat(request: ChatRequest):
         )
         
         # 处理聊天请求
-        chat_response = agent_service.process_chat(request)
+        chat_response = agent_service.process_chat(request, detected_language)
         
         # 添加助手回复到记忆
         memory_service.add_message(
@@ -73,13 +73,33 @@ async def get_conversation_history(session_id: str, limit: Optional[int] = 10):
 
 @router.get("/history/{session_id}/summary")
 async def get_conversation_summary(session_id: str):
-    """获取对话摘要"""
+    """获取对话内容总结"""
     try:
         summary = memory_service.get_conversation_summary(session_id)
         return create_success_response(summary)
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"获取对话摘要失败: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"获取对话总结失败: {str(e)}")
+
+@router.get("/history/{session_id}/statistics")
+async def get_conversation_statistics(session_id: str):
+    """获取对话统计信息"""
+    try:
+        statistics = memory_service.get_conversation_statistics(session_id)
+        return create_success_response(statistics)
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"获取统计信息失败: {str(e)}")
+
+@router.get("/history/{session_id}/insights")
+async def get_conversation_insights(session_id: str):
+    """获取对话洞察（包含统计、总结和上下文）"""
+    try:
+        insights = memory_service.get_conversation_insights(session_id)
+        return create_success_response(insights)
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"获取对话洞察失败: {str(e)}")
 
 @router.delete("/history/{session_id}")
 async def clear_conversation_history(session_id: str):

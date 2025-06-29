@@ -1,5 +1,7 @@
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List, Tuple
 import re
+from langchain_openai import ChatOpenAI
+from ..config import settings
 from ..models.chat import Language
 
 class LanguageService:
@@ -26,6 +28,13 @@ class LanguageService:
                 'keywords': ['the', 'is', 'are', 'in', 'on', 'at', 'and', 'or', 'but', 'because', 'so']
             }
         }
+        
+        self.llm = ChatOpenAI(
+            openai_api_key=settings.OPENAI_API_KEY,
+            openai_api_base=settings.OPENAI_BASE_URL,
+            model=settings.OPENAI_MODEL,
+            temperature=0.1
+        )
     
     def detect_language(self, text: str) -> str:
         """检测文本语言"""

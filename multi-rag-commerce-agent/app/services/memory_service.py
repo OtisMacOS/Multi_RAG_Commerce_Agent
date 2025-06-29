@@ -61,8 +61,8 @@ class MemoryService:
         
         return messages
     
-    def get_conversation_summary(self, session_id: str) -> Dict[str, Any]:
-        """获取对话摘要"""
+    def get_conversation_statistics(self, session_id: str) -> Dict[str, Any]:
+        """获取对话统计信息"""
         if session_id not in self.conversations:
             return {}
         
@@ -91,6 +91,82 @@ class MemoryService:
             "updated_at": conv.updated_at.isoformat(),
             "last_message": messages[-1].content if messages else None
         }
+    
+    def get_conversation_summary(self, session_id: str) -> Dict[str, Any]:
+        """获取对话内容总结（使用LLM生成）"""
+        if session_id not in self.conversations:
+            return {}
+        
+        messages = self.get_conversation_history(session_id)
+        if not messages:
+            return {"summary": "无对话内容"}
+        
+        try:
+            # 生成简单总结（临时实现，后续可集成LLM）
+            summary = self._generate_simple_summary(messages)
+            
+            return {
+                "session_id": session_id,
+                "summary": summary,
+                "conversation_length": len(messages),
+                "main_topics": self._extract_main_topics(messages)
+            }
+            
+        except Exception as e:
+            print(f"生成对话总结失败: {e}")
+            return {"summary": "总结生成失败", "error": str(e)}
+
+    def get_conversation_insights(self, session_id: str) -> Dict[str, Any]:
+        """获取对话洞察（包含统计、总结和上下文）"""
+        return {
+            "statistics": self.get_conversation_statistics(session_id),
+            "summary": self.get_conversation_summary(session_id),
+            "context": self.get_context_for_session(session_id, max_messages=10)
+        }
+
+    def _generate_simple_summary(self, messages: List[Message]) -> str:
+        """生成简单总结（临时实现）"""
+        if not messages:
+            return "无对话内容"
+        
+        user_messages = [msg.content for msg in messages if msg.role == "user"]
+        if not user_messages:
+            return "用户未发送消息"
+        
+        # 简单的关键词提取
+        keywords = []
+        for msg in user_messages:
+            if any(word in msg for word in ["价格", "多少钱", "费用"]):
+                keywords.append("价格咨询")
+            if any(word in msg for word in ["物流", "快递", "配送", "发货"]):
+                keywords.append("物流问题")
+            if any(word in msg for word in ["退货", "换货", "退款"]):
+                keywords.append("售后服务")
+            if any(word in msg for word in ["商品", "产品", "功能"]):
+                keywords.append("商品信息")
+        
+        if keywords:
+            unique_keywords = list(set(keywords))
+            return f"用户主要咨询：{', '.join(unique_keywords)}"
+        else:
+            return "一般性咨询"
+
+    def _extract_main_topics(self, messages: List[Message]) -> List[str]:
+        """提取主要话题"""
+        topics = []
+        for msg in messages:
+            if msg.role == "user":
+                content = msg.content.lower()
+                if any(word in content for word in ["价格", "多少钱"]):
+                    topics.append("价格咨询")
+                elif any(word in content for word in ["物流", "快递"]):
+                    topics.append("物流问题")
+                elif any(word in content for word in ["退货", "换货"]):
+                    topics.append("售后服务")
+                elif any(word in content for word in ["商品", "产品"]):
+                    topics.append("商品信息")
+        
+        return list(set(topics))  # 去重
     
     def get_user_preferences(self, user_id: str) -> Dict[str, Any]:
         """获取用户偏好"""
